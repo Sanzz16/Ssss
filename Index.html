@@ -1,552 +1,215 @@
-<html>
- <head>
-  <title>
-  Sanzxmzz
-  </title>
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SanzxmzzModz</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
   <style>
-   body {
-            background-color: #000000;
-            color: #ffffff;
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            animation: fadeIn 1s ease-in-out;
-        }
-        .container {
-            padding: 20px;
-            max-width: 600px;
-            margin: auto;
-        }
-        .header {
-            font-size: 28px;
-            font-weight: bold;
-            margin-bottom: 20px;
-            text-align: center;
-            animation: slideInDown 1s ease-in-out;
-        }
-        .profile {
-            display: flex;
-            align-items: center;
-            background-color: #1a1a1a;
-            padding: 15px;
-            border-radius: 15px;
-            margin-bottom: 20px;
-            animation: slideInLeft 1s ease-in-out;
-        }
-        .profile img {
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            margin-right: 15px;
-        }
-        .profile-info {
-            display: flex;
-            flex-direction: column;
-        }
-        .profile-info .name {
-            font-size: 20px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-        }
-        .profile-info .name i {
-            margin-left: 5px;
-            color: #1da1f2;
-        }
-        .profile-info .plan {
-            font-size: 16px;
-            color: #888888;
-            display: flex;
-            align-items: center;
-        }
-        .profile-info .plan img {
-            margin-left: 5px;
-            width: 20px;
-            height: 20px;
-        }
-        .menu {
-            margin-bottom: 20px;
-        }
-        .menu-item {
-            display: flex;
-            align-items: center;
-            padding: 15px;
-            border-radius: 15px;
-            background-color: #1a1a1a;
-            margin-bottom: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            animation: slideInRight 1s ease-in-out;
-        }
-        .menu-item:hover {
-            background-color: #333333;
-        }
-        .menu-item i {
-            margin-right: 10px;
-        }
-        .info {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #1a1a1a;
-            padding: 15px;
-            border-radius: 15px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            animation: slideInUp 1s ease-in-out;
-        }
-        .info:hover {
-            background-color: #333333;
-        }
-        .create-server {
-            margin-top: 40px;
-            animation: slideInUp 1s ease-in-out;
-        }
-        .create-server h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .create-server p {
-            font-size: 16px;
-            color: #888888;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .form-group {
-            margin-bottom: 20px;
-        }
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .form-group select {
-            width: 100%;
-            padding: 15px;
-            border-radius: 15px;
-            border: none;
-            background-color: #1a1a1a;
-            color: #888888;
-            font-size: 16px;
-            transition: background-color 0.3s ease;
-        }
-        .form-group select:hover {
-            background-color: #333333;
-        }
-        .form-actions {
-            display: flex;
-            justify-content: space-between;
-        }
-        .form-actions button {
-            padding: 15px 20px;
-            border-radius: 15px;
-            border: none;
-            background-color: #1a1a1a;
-            color: #ffffff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .form-actions button:hover {
-            background-color: #333333;
-        }
-        .form-actions .full {
-            background-color: #ff0000;
-        }
-        .dialog-overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-        }
-        .dialog {
-            background: #1a1a1a;
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 15px;
-            width: 300px;
-            text-align: center;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        .dialog h3 {
-            margin-top: 0;
-        }
-        .dialog button {
-            padding: 10px 20px;
-            border-radius: 15px;
-            border: none;
-            margin: 10px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .dialog .close {
-            background-color: #888888;
-            color: #ffffff;
-        }
-        .dialog .close:hover {
-            background-color: #555555;
-        }
-        .dialog .download {
-            background-color: #007bff;
-            color: #ffffff;
-        }
-        .dialog .download:hover {
-            background-color: #0056b3;
-        }
-        .info-dialog {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            justify-content: center;
-            align-items: center;
-            animation: fadeIn 0.5s ease-in-out;
-        }
-        .info-content {
-            background: #1a1a1a;
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 15px;
-            width: 300px;
-            text-align: center;
-        }
-        .info-content h3 {
-            margin-top: 0;
-        }
-        .info-content p {
-            margin-bottom: 20px;
-        }
-        .info-content button {
-            padding: 10px 20px;
-            border-radius: 15px;
-            border: none;
-            background-color: #888888;
-            color: #ffffff;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .info-content button:hover {
-            background-color: #555555;
-        }
-        .feedback-section {
-            margin-top: 60px;
-            animation: slideInUp 1s ease-in-out;
-        }
-        .feedback-section h2 {
-            font-size: 24px;
-            margin-bottom: 10px;
-            text-align: center;
-        }
-        .feedback-section p {
-            font-size: 16px;
-            color: #888888;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .feedback-form {
-            margin-bottom: 20px;
-        }
-        .feedback-form label {
-            display: block;
-            margin-bottom: 5px;
-        }
-        .feedback-form input, .feedback-form textarea {
-            width: 100%;
-            padding: 15px;
-            border-radius: 15px;
-            border: none;
-            background-color: #1a1a1a;
-            color: #888888;
-            font-size: 16px;
-            margin-bottom: 10px;
-            transition: background-color 0.3s ease;
-        }
-        .feedback-form input:hover, .feedback-form textarea:hover {
-            background-color: #333333;
-        }
-        .feedback-form .form-actions {
-            display: flex;
-            justify-content: space-between;
-        }
-        .feedback-form .form-actions button {
-            padding: 15px 20px;
-            border-radius: 15px;
-            border: none;
-            background-color: #1a1a1a;
-            color: #ffffff;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .feedback-form .form-actions button:hover {
-            background-color: #333333;
-        }
-        .feedback-list {
-            background-color: #1a1a1a;
-            padding: 15px;
-            border-radius: 15px;
-            animation: slideInUp 1s ease-in-out;
-        }
-        .feedback-item {
-            border-bottom: 1px solid #333333;
-            padding: 10px 0;
-            position: relative;
-            overflow: hidden;
-        }
-        .feedback-item:last-child {
-            border-bottom: none;
-        }
-        .feedback-item .name {
-            font-weight: bold;
-            z-index: 1;
-            position: relative;
-        }
-        .feedback-item .text {
-            margin-top: 5px;
-            z-index: 1;
-            position: relative;
-        }
-        .feedback-item .video-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            object-fit: cover;
-            opacity: 0.3;
-        }
-        .rainbow-text {
-            background: linear-gradient(90deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: rainbow 2s infinite;
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-        @keyframes slideInDown {
-            from { transform: translateY(-100%); }
-            to { transform: translateY(0); }
-        }
-        @keyframes slideInLeft {
-            from { transform: translateX(-100%); }
-            to { transform: translateX(0); }
-        }
-        @keyframes slideInRight {
-            from { transform: translateX(100%); }
-            to { transform: translateX(0); }
-        }
-        @keyframes slideInUp {
-            from { transform: translateY(100%); }
-            to { transform: translateY(0); }
-        }
-        @keyframes rainbow {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 400% 400%;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px 10px;
+      animation: moveBackground 10s ease infinite;
+    }
+
+    @keyframes moveBackground {
+      0% { background-position: 0% 0%; }
+      50% { background-position: 0% 100%; }
+      100% { background-position: 0% 0%; }
+    }
+
+    .container {
+      max-width: 400px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    .card {
+      backdrop-filter: blur(15px);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5);
+    }
+
+    .info-banner {
+      background: rgba(255,255,255,0.1);
+      padding: 12px;
+      border-radius: 14px;
+      text-align: center;
+      font-weight: bold;
+      font-size: 16px;
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.15);
+      animation: shake 7s ease-in-out infinite;
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-10px); }
+      50% { transform: translateX(10px); }
+      75% { transform: translateX(-10px); }
+    }
+
+    .desc {
+      font-size: 14px;
+      color: #eee;
+      line-height: 1.6;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    .logo {
+      width: 90px;
+      border-radius: 100%;
+      margin-bottom: 12px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #ddd;
+      margin-bottom: 20px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 15px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 14px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn.green {
+      background: #2ecc71;
+      color: #fff;
+    }
+
+    .btn.green:hover {
+      background: #27ae60;
+    }
+
+    .btn.blue {
+      background: #3498db;
+      color: #fff;
+    }
+
+    .btn.blue:hover {
+      background: #2980b9;
+    }
+
+    .device-info {
+      font-size: 13px;
+      margin-top: 10px;
+      text-align: left;
+    }
   </style>
- </head>
- <body>
+</head>
+<body>
   <div class="container">
-   <div class="header">
-   </div>
-   <div class="profile">
-    <img alt="Profile picture of Kyouzen Sanzxmzz" height="60" src="https://storage.googleapis.com/a1aa/image/6FjE3MsSDQoYE51WBwrVVuNObgB5JrWZSPhSkyhdxUY50uBF.jpg" width="60"/>
-    <div class="profile-info">
-     <div class="name">
-      Kyouzen Sanzxmzz
-      <i class="fas fa-check-circe">
-      </i>
-     </div>
-     <div class="plan">
-      VVIP PLAN
-      <img alt="Plan icon" src="https://media3.giphy.com/media/l1KVccToDJ6oz6qYg/giphy.gif?cid=6c09b952mkv51s16pmikxwbpsynlcd1nup6lqixdsd5hb0z8&ep=v1_internal_gif_by_id&rid=giphy.gif&ct=g"/>
-     </div>
+    <div class="info-banner">Enjoy For Script</div>
+
+    <div class="card">
+      <div class="title">Your Info</div>
+      <div class="device-info" id="deviceInfo">
+        Loading device info...
+      </div>
     </div>
-   </div>
-   <div class="menu">
-    <div class="menu-item">
-     <i class="fab fa-whatsapp">
-     </i>
-     <span>
-      WhatsApp
-     </span>
+
+    <div class="card">
+            <div class="title">Sanzxmzz Modz</div>
+      <img src="https://img.eselt.de/img/17783814_6wed6cNMYzo1Tp4s/ad.jpg" alt="Logo" class="logo">
+      <div class="title"></div>
+
+      <div class="btn-group">
+        <a href="https://link-untuk-alternatif-1.com" target="_blank">
+          <button class="btn green">Alternatif 1</button>
+        </a>
+        <a href="https://link-untuk-alternatif-2.com" target="_blank">
+          <button class="btn green">Alternatif 2</button>
+        </a>
+      </div>
+
+      <div class="desc">
+        Pilih Aja Jika Salah Satu Link Eror Pake Yang Lain
+      </div>
     </div>
-    <div class="menu-item">
-     <i class="fab fa-telegram">
-     </i>
-     <span>
-      Telegram
-     </span>
+
+    <div class="card">
+      <div class="title">Request Feature</div>
+      <div class="desc">Silahkan Hubungi Salah Satunya</div>
+      <a href="https://wa.me/6288210366265" target="_blank">
+        <button class="btn green">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width: 18px; height: 18px; margin-right: 8px; vertical-align: middle;">
+          WhatsApp
+        </button>
+        </a>
+              <a href="https://t.me/@tlzsanzz" target="_blank">
+        <button class="btn blue">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/1024px-Telegram_logo.svg.png" alt="WhatsApp" style="width: 18px; height: 18px; margin-right: 8px; vertical-align: middle;">
+          WhatsApp
+        </button>
+      </a>
     </div>
-    <div class="menu-item">
-     <i class="fab fa-youtube">
-     </i>
-     <span>
-      YouTube
-     </span>
-    </div>
-   </div>
-   <div class="info" onclick="showInfo()">
-    <i class="fas fa-info-circle">
-    </i>
-    <span>
-     Info
-    </span>
-   </div>
-   <div class="create-server">
-    <h2>
-     Create Server
-    </h2>
-    <p>
-     Configure your new free server
-    </p>
-    <div class="form-group">
-     <label for="server-type">
-      Server Type
-     </label>
-     <select id="server-type">
-      <option value="javascript">
-       Javascript
-      </option>
-      <option value="0.5-drone">
-       0.5 Drone
-      </option>
-      <option value="1.5-drone">
-       1.5 Drone
-      </option>
-     </select>
-    </div>
-    <div class="form-actions">
-     <button class="full" onclick="showDialog()">
-      Download
-     </button>
-    </div>
-   </div>
-   <div class="feedback-section">
-    <h2>
-     Feedback
-    </h2>
-    <p>
-     Let us know what you think about our website
-    </p>
-    <div class="feedback-form">
-     <label for="feedback-name">
-      Name
-     </label>
-     <input id="feedback-name" placeholder="Your Name" type="text"/>
-     <label for="feedback-text">
-      Text
-     </label>
-     <textarea id="feedback-text" placeholder="Your Feedback"></textarea>
-     <div class="form-actions">
-      <button onclick="cancelFeedback()">
-       Cancel
-      </button>
-      <button onclick="submitFeedback()">
-       Submit
-      </button>
-     </div>
-    </div>
-    <div class="feedback-list" id="feedback-list">
-     <!-- Feedback items will be appended here -->
-    </div>
-   </div>
   </div>
-  <div class="dialog-overlay" id="dialog-overlay">
-   <div class="dialog">
-    <h3>
-     iPhone Theme
-    </h3>
-    <p>
-     Download the iPhone theme for a better experience.
-    </p>
-    <button class="close" onclick="closeDialog()">
-     Close
-    </button>
-    <button class="download" onclick="downloadTheme()">
-     Download
-    </button>
-   </div>
-  </div>
-  <div class="info-dialog" id="info-dialog">
-   <div class="info-content">
-    <h3>
-     About This Website
-    </h3>
-    <p>
-     This website is designed to help you manage your servers efficiently.
-    </p>
-    <button onclick="closeInfo()">
-     Close
-    </button>
-   </div>
-  </div>
+
   <script>
-   function showDialog() {
-            document.getElementById('dialog-overlay').style.display = 'flex';
-        }
-        function closeDialog() {
-            document.getElementById('dialog-overlay').style.display = 'none';
-        }
-        function downloadTheme() {
-            const serverType = document.getElementById('server-type').value;
-            let downloadLink = '';
-            switch (serverType) {
-                case 'javascript':
-                    downloadLink = 'https://example.com/javascript-theme';
-                    break;
-                case '0.5-drone':
-                    downloadLink = 'https://example.com/0.5-drone-theme';
-                    break;
-                case '1.5-drone':
-                    downloadLink = 'https://example.com/1.5-drone-theme';
-                    break;
-                default:
-                    downloadLink = '#';
-            }
-            window.location.href = downloadLink;
-        }
-        function showInfo() {
-            document.getElementById('info-dialog').style.display = 'flex';
-        }
-        function closeInfo() {
-            document.getElementById('info-dialog').style.display = 'none';
-        }
-        function cancelFeedback() {
-            document.getElementById('feedback-name').value = '';
-            document.getElementById('feedback-text').value = '';
-        }
-        function submitFeedback() {
-            const name = document.getElementById('feedback-name').value;
-            const text = document.getElementById('feedback-text').value;
-            if (name && text) {
-                const feedbackList = document.getElementById('feedback-list');
-                const feedbackItem = document.createElement('div');
-                feedbackItem.className = 'feedback-item';
-                feedbackItem.innerHTML = `
-                    <video class="video-background" autoplay loop muted>
-                        <source src="video/sNz.mp4" type="video/mp4">
-                    </video>
-                    <div class="name">${name}</div>
-                    <div class="text ${text.includes('bagus') ? 'rainbow-text' : ''}">${text}</div>
-                `;
-                feedbackList.appendChild(feedbackItem);
-                cancelFeedback();
-            }
-        }
+    function setDeviceInfo(model, androidVersion, phone) {
+      const info = `
+        <strong>Model:</strong> ${model}<br>
+        <strong>Android:</strong> ${androidVersion}<br>
+        <strong>Nomor HP:</strong> ${phone || 'Tidak tersedia'}<br>
+      `;
+      document.getElementById("deviceInfo").innerHTML = info;
+    }
+
+    // Fallback buat browser biasa
+    const userAgent = navigator.userAgent;
+    const platform = navigator.platform;
+    const deviceMemory = navigator.deviceMemory || 'N/A';
+
+    document.getElementById("deviceInfo").innerHTML = `
+      <strong>User Agent:</strong> ${userAgent}<br>
+      <strong>Platform:</strong> ${platform}<br>
+      <strong>RAM:</strong> ${deviceMemory} GB<br>
+    `;
   </script>
- </body>
+</body>
 </html>
