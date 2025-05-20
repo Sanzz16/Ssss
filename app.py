@@ -63,7 +63,7 @@ def index():
                 img_io.seek(0)
                 return send_file(img_io, mimetype='image/png')
 
-    return render_template('index.html', error=error)
+    return render_template('Bat.html', error=error)
 
 if __name__ == '__main__':
     app.run(debug=True)
