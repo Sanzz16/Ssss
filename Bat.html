@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Outfit Generator</title>
+    <style>
+        body {
+            background-color: #111;
+            color: #eee;
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+            border-radius: 8px;
+            border: none;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        .error {
+            color: #ff5e5e;
+        }
+    </style>
+</head>
+<body>
+    <h1>Outfit Generator</h1>
+    <form method="POST">
+        <input type="text" name="uid" placeholder="Masukkan UID"><br>
+        <input type="text" name="region" placeholder="Masukkan Region (misal: ID)"><br>
+        <input type="text" name="key" placeholder="Masukkan API Key"><br>
+        <button type="submit">Generate</button>
+    </form>
+    {% if error %}
+        <p class="error">{{ error }}</p>
+    {% endif %}
+</body>
+</html>
